@@ -289,6 +289,76 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* DASHBOARD PREVIEW */
+    .dashboard-preview {
+      margin: 12px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .dashboard-preview img {
+      width: 100%;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .dashboard-preview:hover img { opacity: 0.9; }
+
+    .preview-label {
+      position: absolute;
+      bottom: 8px; right: 10px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: #fff;
+      background: rgba(0,0,0,0.55);
+      padding: 3px 8px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; animation: fadeIn 0.2s ease; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem; right: 1.5rem;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+      background: none; border: none;
+      font-family: sans-serif;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
     @media (max-width: 560px) {
       .hero { flex-direction: column; gap: 1rem; }
       .nav-links { display: none; }
@@ -344,8 +414,8 @@
     <!-- ABOUT / STORY -->
     <div class="story-block" id="about">
       <div class="story-label">About</div>
-      <p>I turn messy operational data into decisions. My path here wasn't linear — I spent years building expertise in <span class="highlight">Environmental &amp; Occupational Health</span>, earning a degree in EOH and developing a deep understanding of risk, compliance, and how organisations track what matters.</p>
-      <p>Limited opportunities near home pushed me to rethink how I could apply that domain knowledge differently. Instead of walking away from it, I leaned in — and spent the past year teaching myself SQL, Python, Power BI, and statistical modelling. The result is an analyst who doesn't just clean data, but understands <span class="highlight">why the numbers matter</span> in manufacturing floors, supply chains, and risk operations.</p>
+      <p>I turn messy operational data into decisions. My path here wasn't linear — I hold a degree in <span class="highlight">Environmental &amp; Occupational Health</span>, which gave me a strong academic grounding in risk, compliance frameworks, and how organisations measure what matters for safety and operations.</p>
+      <p>Circumstances kept me close to home for several years after graduating, but as things opened up, I made a deliberate choice: rather than starting over, I built on what I already knew. Over the past year I taught myself SQL, Python, Power BI, and statistical modelling — and the result is an analyst who understands <span class="highlight">why the numbers matter</span>, not just how to process them. That domain grounding is something most self-taught analysts simply don't have.</p>
       <p>I also run a small retail business — which means I've lived the reality of making decisions from incomplete data. That perspective shapes how I frame every analysis: not as an exercise, but as something a real person needs to act on.</p>
       <div class="story-seeking">
         <span class="dot-live"></span>
@@ -418,9 +488,9 @@
           <a href="https://github.com/nawwarah-analyst/supply_chain_risk_analysis" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;flex-shrink:0;">GitHub ↗</a>
         </div>
         <p class="card-desc">Built a statistical supplier volatility index using standard deviation of lead times to classify suppliers into High / Medium / Low risk categories. Identified 88.69% of procurement value exposed to high-volatility suppliers and developed an executive Power BI dashboard tracking Value at Risk (VaR), exposure concentration, and supplier health — enabling leadership to prioritise renegotiation and diversification strategies.</p>
-        <div class="dashboard-note">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Dashboard screenshots available in the GitHub README
+        <div class="dashboard-preview" onclick="openLightbox('supply-chain-dashboard.png')">
+          <img src="supply-chain-dashboard.png" alt="Supply Chain Risk Analysis Dashboard" loading="lazy" />
+          <span class="preview-label">Click to expand</span>
         </div>
         <div class="tag-row">
           <span class="tag blue">BigQuery</span>
@@ -442,9 +512,9 @@
           <a href="https://github.com/nawwarah-analyst/ehs-safety-intelligence" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;flex-shrink:0;">GitHub ↗</a>
         </div>
         <p class="card-desc">Designed an end-to-end EHS analytics system integrating incident logs, audit records, and training data into a unified risk-monitoring platform. Built safety-critical KPIs including LTIFR, severity scoring, near-miss rate, and training compliance — with both lagging and leading indicators to enable proactive safety management. Role-based Power BI dashboards serve Executives, EHS Managers, and Plant Managers with tailored views.</p>
-        <div class="dashboard-note">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Dashboard screenshots available in the GitHub README
+        <div class="dashboard-preview" onclick="openLightbox('ehs-dashboard.png')">
+          <img src="ehs-dashboard.png" alt="EHS Safety Intelligence Dashboard" loading="lazy" />
+          <span class="preview-label">Click to expand</span>
         </div>
         <div class="tag-row">
           <span class="tag blue">BigQuery</span>
@@ -499,7 +569,7 @@
         <div class="why-card">
           <span class="why-icon">🏭</span>
           <h3>Domain depth</h3>
-          <p>EHS, supply chain, and retail operations — I speak the language of the business, not just the data. 5 years of EOH expertise makes my analysis contextually accurate.</p>
+          <p>EHS, supply chain, and retail operations — I speak the language of the business, not just the data. My EOH degree gives my analysis domain grounding that most self-taught analysts simply don't have.</p>
         </div>
         <div class="why-card">
           <span class="why-icon">⛓️</span>
@@ -535,6 +605,25 @@
   <footer>
     &copy; 2026 Nawwarah Yusof · Built with HTML &amp; CSS · Hosted on GitHub Pages
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Dashboard preview" onclick="event.stopPropagation()" />
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 
 </body>
 </html>
