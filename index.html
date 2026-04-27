@@ -7,58 +7,52 @@
   <meta name="description" content="Data Analyst specialising in business performance, operational risk, and supply chain analytics. SQL, Python, Power BI, Tableau, BigQuery." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #ffffff;
-      --bg-secondary: #f7f7f5;
-      --bg-tertiary: #f1f0ec;
-      --text: #1a1a18;
-      --text-secondary: #5c5c58;
-      --text-tertiary: #8a8a84;
-      --border: rgba(0,0,0,0.12);
-      --border-med: rgba(0,0,0,0.2);
+      --bg: #fafaf8;
+      --bg-secondary: #f3f2ee;
+      --bg-tertiary: #ece9e2;
+      --bg-card: #ffffff;
+      --text: #18180f;
+      --text-secondary: #5a5a4a;
+      --text-tertiary: #9a9a88;
+      --border: rgba(0,0,0,0.09);
+      --border-med: rgba(0,0,0,0.18);
       --radius-md: 8px;
-      --radius-lg: 12px;
-      --blue-bg: #E6F1FB;
-      --blue-text: #0C447C;
+      --radius-lg: 14px;
+      --blue-bg: #E8F1FB;
+      --blue-text: #0C3D72;
       --blue-border: #B5D4F4;
-      --teal-bg: #E1F5EE;
-      --teal-text: #085041;
+      --teal-bg: #E0F5EE;
+      --teal-text: #07483A;
       --teal-border: #9FE1CB;
       --purple-bg: #EEEDFE;
-      --purple-text: #3C3489;
+      --purple-text: #342F80;
       --purple-border: #CECBF6;
-      --amber-bg: #FAEEDA;
-      --amber-text: #633806;
+      --amber-bg: #FDF0D8;
+      --amber-text: #5A3205;
       --amber-border: #FAC775;
-      --accent: #378ADD;
+      --accent: #2C6FBF;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #1c1c1a;
-        --bg-secondary: #252523;
-        --bg-tertiary: #2e2e2b;
-        --text: #f0ede8;
-        --text-secondary: #a8a8a0;
-        --text-tertiary: #6e6e68;
-        --border: rgba(255,255,255,0.1);
-        --border-med: rgba(255,255,255,0.18);
-        --blue-bg: #0C447C;
-        --blue-text: #B5D4F4;
-        --blue-border: #185FA5;
-        --teal-bg: #085041;
-        --teal-text: #9FE1CB;
-        --teal-border: #0F6E56;
-        --purple-bg: #3C3489;
-        --purple-text: #CECBF6;
-        --purple-border: #534AB7;
-        --amber-bg: #633806;
-        --amber-text: #FAC775;
-        --amber-border: #854F0B;
+        --bg: #161612;
+        --bg-secondary: #1e1e1a;
+        --bg-tertiary: #262620;
+        --bg-card: #1e1e1a;
+        --text: #f0ede6;
+        --text-secondary: #a0a090;
+        --text-tertiary: #68685a;
+        --border: rgba(255,255,255,0.08);
+        --border-med: rgba(255,255,255,0.16);
+        --blue-bg: #0C3D72; --blue-text: #B5D4F4; --blue-border: #185FA5;
+        --teal-bg: #07483A; --teal-text: #9FE1CB; --teal-border: #0F6E56;
+        --purple-bg: #342F80; --purple-text: #CECBF6; --purple-border: #534AB7;
+        --amber-bg: #5A3205; --amber-text: #FAC775; --amber-border: #854F0B;
         --accent: #85B7EB;
       }
     }
@@ -66,7 +60,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg-tertiary);
       color: var(--text);
       font-size: 15px;
@@ -74,383 +68,244 @@
     }
 
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: var(--bg);
       border-bottom: 0.5px solid var(--border);
       padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       height: 52px;
     }
 
     .nav-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
+      font-size: 13px; font-weight: 500; color: var(--text);
       text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: -0.02em;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--text); }
 
-    .page {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 4rem;
-    }
+    .page { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
 
-    /* Hero */
-    .hero {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
+    /* HERO */
+    .hero { display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 1.75rem; animation: fadeUp 0.5s ease both; }
 
     .avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+      width: 62px; height: 62px; border-radius: 50%;
       background: var(--purple-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--purple-text);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 500; color: var(--purple-text);
       flex-shrink: 0;
+      border: 2px solid var(--purple-border);
+      overflow: hidden;
     }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 
-    .hero-text h1 {
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
+    .hero-text h1 { font-size: 22px; font-weight: 500; color: var(--text); margin-bottom: 3px; letter-spacing: -0.02em; }
+    .hero-text .subtitle { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 13px; }
 
-    .hero-text .subtitle {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 7px; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: var(--radius-md);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 13px; border-radius: var(--radius-md);
+      font-size: 13px; font-weight: 400; cursor: pointer;
       text-decoration: none;
       border: 0.5px solid var(--border-med);
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg-card); color: var(--text);
       transition: background 0.15s;
+      font-family: 'DM Sans', sans-serif;
     }
-
     .btn:hover { background: var(--bg-secondary); }
+    .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn-primary:hover { opacity: 0.82; background: var(--text); }
 
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
-    .btn-primary:hover { opacity: 0.85; background: var(--text); }
-
-    /* Value prop block */
-    .value-block {
-      background: var(--bg);
+    /* ABOUT / STORY */
+    .story-block {
+      background: var(--bg-card);
       border-radius: var(--radius-lg);
       border: 0.5px solid var(--border);
-      border-left: 3px solid #7F77DD;
-      padding: 1.1rem 1.25rem;
-      margin-bottom: 1.5rem;
+      padding: 1.35rem 1.4rem;
+      margin-bottom: 1.25rem;
+      position: relative; overflow: hidden;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+    .story-block::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(to bottom, #7F77DD, #2C6FBF);
+    }
+    .story-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-tertiary); margin-bottom: 8px;
+    }
+    .story-block p { font-size: 14px; line-height: 1.78; color: var(--text); margin-bottom: 10px; }
+    .story-block p:last-of-type { margin-bottom: 12px; }
+    .highlight { font-weight: 500; }
+
+    .story-seeking {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12.5px; color: var(--teal-text);
+      background: var(--teal-bg); border: 0.5px solid var(--teal-border);
+      border-radius: 6px; padding: 5px 11px;
+    }
+    .dot-live {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22b573; flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.6; transform:scale(1.3); }
     }
 
-    .value-block p { font-size: 14px; line-height: 1.75; color: var(--text); }
-    .value-block .seeking { font-size: 13px; color: var(--text-secondary); margin-top: 8px; }
-
-    /* Stats */
+    /* STATS */
     .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-      margin-bottom: 2rem;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 8px; margin-bottom: 2rem;
+      animation: fadeUp 0.5s 0.2s ease both;
     }
-
     .stat-card {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-md);
-      padding: 0.9rem 1rem;
-      text-align: center;
+      background: var(--bg-card); border-radius: var(--radius-md);
+      border: 0.5px solid var(--border);
+      padding: 0.85rem 1rem; text-align: center;
     }
-
     .stat-card .num {
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--text);
+      font-size: 20px; font-weight: 500; color: var(--text);
+      font-family: 'DM Mono', monospace; letter-spacing: -0.03em;
     }
+    .stat-card .lbl { font-size: 11.5px; color: var(--text-secondary); margin-top: 3px; line-height: 1.4; }
 
-    .stat-card .lbl {
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin-top: 2px;
-    }
-
-    /* Divider */
     hr { border: none; border-top: 0.5px solid var(--border); margin: 2rem 0; }
 
-    /* Section headers */
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; }
     .section-header h2 {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
+      font-size: 11px; font-weight: 500; color: var(--text-tertiary);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.1em; text-transform: uppercase;
     }
+    .section-note { font-size: 12px; color: var(--text-tertiary); }
 
-    .section-note {
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-
-    /* Skills */
-    .skills-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 2rem;
-    }
-
+    /* SKILLS */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2rem; }
     .skill-pill {
-      display: inline-flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 5px 13px;
-      border-radius: 20px;
+      display: inline-flex; align-items: center;
+      font-size: 12px; font-weight: 400;
+      padding: 5px 13px; border-radius: 20px;
       border: 0.5px solid var(--border);
-      color: var(--text-secondary);
-      background: var(--bg);
+      color: var(--text-secondary); background: var(--bg-card);
     }
-
-    .skill-pill.blue { background: var(--blue-bg); color: var(--blue-text); border-color: var(--blue-border); }
+    .skill-pill.blue   { background: var(--blue-bg);   color: var(--blue-text);   border-color: var(--blue-border); }
     .skill-pill.purple { background: var(--purple-bg); color: var(--purple-text); border-color: var(--purple-border); }
-    .skill-pill.teal { background: var(--teal-bg); color: var(--teal-text); border-color: var(--teal-border); }
-    .skill-pill.amber { background: var(--amber-bg); color: var(--amber-text); border-color: var(--amber-border); }
+    .skill-pill.teal   { background: var(--teal-bg);   color: var(--teal-text);   border-color: var(--teal-border); }
+    .skill-pill.amber  { background: var(--amber-bg);  color: var(--amber-text);  border-color: var(--amber-border); }
 
-    /* Project cards */
+    /* PROJECT CARDS */
     .project-card {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      margin-bottom: 1rem;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.3rem; margin-bottom: 1rem;
+      transition: box-shadow 0.2s;
     }
+    .project-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
+    .project-card.featured { border: 1.5px solid var(--blue-border); }
 
-    .project-card.featured { border: 2px solid var(--blue-border); }
-
-    .card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
     .impact-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 9px;
-      border-radius: 4px;
-      background: var(--teal-bg);
-      color: var(--teal-text);
-      margin-bottom: 6px;
+      display: inline-block; font-size: 11px; font-weight: 500;
+      padding: 3px 9px; border-radius: 4px;
+      background: var(--teal-bg); color: var(--teal-text); margin-bottom: 6px;
+      font-family: 'DM Mono', monospace;
     }
+    .card-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; letter-spacing: -0.01em; }
+    .card-sub { font-size: 12px; color: var(--text-secondary); }
+    .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.72; margin-bottom: 12px; }
 
-    .card-title {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 2px;
+    .dashboard-note {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; color: var(--accent);
+      background: var(--blue-bg); border: 0.5px solid var(--blue-border);
+      border-radius: 6px; padding: 6px 11px; margin-bottom: 12px;
+      font-style: italic;
     }
-
-    .card-sub {
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-
-    .card-desc {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
+    .dashboard-note svg { flex-shrink: 0; opacity: 0.8; }
 
     .tag-row { display: flex; flex-wrap: wrap; gap: 4px; }
-
     .tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 9px;
-      border-radius: 20px;
+      display: inline-block; font-size: 11px; font-weight: 500;
+      padding: 3px 9px; border-radius: 20px;
+      font-family: 'DM Mono', monospace;
     }
-
-    .tag.blue { background: var(--blue-bg); color: var(--blue-text); }
+    .tag.blue   { background: var(--blue-bg);   color: var(--blue-text); }
     .tag.purple { background: var(--purple-bg); color: var(--purple-text); }
-    .tag.teal { background: var(--teal-bg); color: var(--teal-text); }
-    .tag.amber { background: var(--amber-bg); color: var(--amber-text); }
-    .tag.neutral { background: var(--bg-secondary); color: var(--text-secondary); border: 0.5px solid var(--border); }
+    .tag.teal   { background: var(--teal-bg);   color: var(--teal-text); }
+    .tag.amber  { background: var(--amber-bg);  color: var(--amber-text); }
+    .tag.neutral{ background: var(--bg-secondary); color: var(--text-secondary); border: 0.5px solid var(--border); }
 
-    /* Supporting projects grid */
-    .supporting-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-    }
-
+    /* SUPPORTING */
+    .supporting-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
     .supporting-card {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1rem 1.1rem;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 1.1rem;
+      transition: box-shadow 0.2s;
     }
-
-    .supporting-card h3 {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .supporting-card p {
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-
-    .supporting-card a {
-      font-size: 12px;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
+    .supporting-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+    .supporting-card h3 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 5px; }
+    .supporting-card p { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.5; }
+    .supporting-card a { font-size: 12px; color: var(--accent); text-decoration: none; }
     .supporting-card a:hover { text-decoration: underline; }
 
-    /* Why hire me */
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px;
-      margin-bottom: 2rem;
+    .supporting-label {
+      font-size: 11px; font-weight: 500; color: var(--text-tertiary);
+      text-transform: uppercase; letter-spacing: 0.07em;
+      margin: 1.5rem 0 0.75rem;
+      font-family: 'DM Mono', monospace;
     }
 
-    .why-card {
-      padding: 0.9rem 1rem;
-      border-radius: var(--radius-md);
-      border: 0.5px solid var(--border);
-      background: var(--bg);
-    }
+    /* WHY */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 2rem; }
+    .why-card { padding: 1rem 1.1rem; border-radius: var(--radius-md); border: 0.5px solid var(--border); background: var(--bg-card); }
+    .why-icon { font-size: 20px; margin-bottom: 6px; display: block; }
+    .why-card h3 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 5px; }
+    .why-card p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
 
-    .why-card h3 {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .why-card p {
-      font-size: 12px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* CTA footer */
+    /* CTA */
     .cta-block {
-      text-align: center;
-      padding: 1.75rem 1.5rem;
-      background: var(--bg-secondary);
-      border-radius: var(--radius-lg);
+      text-align: center; padding: 2rem 1.5rem;
+      background: var(--bg-card); border-radius: var(--radius-lg);
+      border: 0.5px solid var(--border);
     }
-
-    .cta-block p {
-      font-size: 14px;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-
+    .cta-block p { font-size: 15px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+    .cta-block .cta-sub { font-size: 13px; color: var(--text-secondary); font-weight: 400; margin-bottom: 1.25rem; }
     .cta-block .btn-row { justify-content: center; }
 
-    /* Supporting label */
-    .supporting-label {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin: 1.5rem 0 0.75rem;
+    footer { text-align: center; padding: 2rem 1rem; font-size: 12px; color: var(--text-tertiary); }
+
+    .icon { width: 14px; height: 14px; vertical-align: middle; flex-shrink: 0; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-
-    /* Responsive */
     @media (max-width: 560px) {
       .hero { flex-direction: column; gap: 1rem; }
       .nav-links { display: none; }
       .supporting-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
-    /* Icon inline */
-    .icon { width: 14px; height: 14px; vertical-align: middle; flex-shrink: 0; }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#top" class="nav-name">Nawwarah Yusof</a>
+    <a href="#top" class="nav-name">nawwarah.yusof</a>
     <ul class="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="mailto:nawwarah.bi@gmail.com">Contact</a></li>
     </ul>
   </nav>
@@ -459,7 +314,9 @@
 
     <!-- HERO -->
     <div class="hero">
-      <img src="photo.jpg" alt="Nawwarah Yusof" class="avatar" style="object-fit:cover;" />
+      <div class="avatar">
+        <img src="photo.jpg" alt="Nawwarah Yusof" onerror="this.style.display='none'; this.parentElement.textContent='NY';" />
+      </div>
       <div class="hero-text">
         <h1>Nawwarah Yusof</h1>
         <p class="subtitle">Data Analyst — Business Performance &amp; Operational Risk</p>
@@ -472,7 +329,10 @@
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             GitHub
           </a>
-          <a href="https://drive.google.com/file/d/1gvJ52hNcw3deRTtTvstlxXyfRDU-Hlhx/view?usp=sharing" target="_blank" class="btn">Resume (PDF)</a>
+          <a href="https://drive.google.com/file/d/1gvJ52hNcw3deRTtTvstlxXyfRDU-Hlhx/view?usp=sharing" target="_blank" class="btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Resume
+          </a>
           <a href="mailto:nawwarah.bi@gmail.com" class="btn btn-primary">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             Get in touch
@@ -481,17 +341,23 @@
       </div>
     </div>
 
-    <!-- VALUE PROPOSITION -->
-    <div class="value-block" id="about">
-      <p>I turn messy operational data into decisions. With a background in <strong style="font-weight:500;">Environmental &amp; Occupational Health</strong> and hands-on experience running small retail businesses, I bring domain depth to analytics — understanding both the business context behind the numbers and the technical execution to build dashboards, KPI systems, and risk models from scratch.</p>
-      <p class="seeking">Currently seeking data analyst roles in operations, supply chain, or risk — where structured analysis creates measurable business impact.</p>
+    <!-- ABOUT / STORY -->
+    <div class="story-block" id="about">
+      <div class="story-label">About</div>
+      <p>I turn messy operational data into decisions. My path here wasn't linear — I spent years building expertise in <span class="highlight">Environmental &amp; Occupational Health</span>, earning a degree in EOH and developing a deep understanding of risk, compliance, and how organisations track what matters.</p>
+      <p>Limited opportunities near home pushed me to rethink how I could apply that domain knowledge differently. Instead of walking away from it, I leaned in — and spent the past year teaching myself SQL, Python, Power BI, and statistical modelling. The result is an analyst who doesn't just clean data, but understands <span class="highlight">why the numbers matter</span> in manufacturing floors, supply chains, and risk operations.</p>
+      <p>I also run a small retail business — which means I've lived the reality of making decisions from incomplete data. That perspective shapes how I frame every analysis: not as an exercise, but as something a real person needs to act on.</p>
+      <div class="story-seeking">
+        <span class="dot-live"></span>
+        Open to data analyst roles — operations, risk, supply chain, or EHS
+      </div>
     </div>
 
     <!-- STATS -->
     <div class="stats-grid">
       <div class="stat-card">
         <div class="num">5</div>
-        <div class="lbl">End-to-end projects</div>
+        <div class="lbl">Portfolio projects</div>
       </div>
       <div class="stat-card">
         <div class="num">$22M+</div>
@@ -502,8 +368,8 @@
         <div class="lbl">BI tools in use</div>
       </div>
       <div class="stat-card">
-        <div class="num">Self-taught</div>
-        <div class="lbl">Transition in progress</div>
+        <div class="num">2026</div>
+        <div class="lbl">Career transition year</div>
       </div>
     </div>
 
@@ -552,6 +418,10 @@
           <a href="https://github.com/nawwarah-analyst/supply_chain_risk_analysis" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;flex-shrink:0;">GitHub ↗</a>
         </div>
         <p class="card-desc">Built a statistical supplier volatility index using standard deviation of lead times to classify suppliers into High / Medium / Low risk categories. Identified 88.69% of procurement value exposed to high-volatility suppliers and developed an executive Power BI dashboard tracking Value at Risk (VaR), exposure concentration, and supplier health — enabling leadership to prioritise renegotiation and diversification strategies.</p>
+        <div class="dashboard-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Dashboard screenshots available in the GitHub README
+        </div>
         <div class="tag-row">
           <span class="tag blue">BigQuery</span>
           <span class="tag blue">Python</span>
@@ -565,13 +435,17 @@
       <div class="project-card featured">
         <div class="card-top">
           <div>
-            <span class="impact-badge">End-to-end EHS intelligence platform</span>
+            <span class="impact-badge">End-to-end EHS platform</span>
             <p class="card-title">EHS Safety Intelligence System</p>
             <p class="card-sub">LTIFR · Compliance monitoring · Role-based dashboards</p>
           </div>
           <a href="https://github.com/nawwarah-analyst/ehs-safety-intelligence" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;flex-shrink:0;">GitHub ↗</a>
         </div>
         <p class="card-desc">Designed an end-to-end EHS analytics system integrating incident logs, audit records, and training data into a unified risk-monitoring platform. Built safety-critical KPIs including LTIFR, severity scoring, near-miss rate, and training compliance — with both lagging and leading indicators to enable proactive safety management. Role-based Power BI dashboards serve Executives, EHS Managers, and Plant Managers with tailored views.</p>
+        <div class="dashboard-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Dashboard screenshots available in the GitHub README
+        </div>
         <div class="tag-row">
           <span class="tag blue">BigQuery</span>
           <span class="tag purple">Power BI</span>
@@ -623,30 +497,35 @@
       </div>
       <div class="why-grid">
         <div class="why-card">
+          <span class="why-icon">🏭</span>
           <h3>Domain depth</h3>
-          <p>EHS, supply chain, and retail operations — I speak the language of the business, not just the data.</p>
+          <p>EHS, supply chain, and retail operations — I speak the language of the business, not just the data. 5 years of EOH expertise makes my analysis contextually accurate.</p>
         </div>
         <div class="why-card">
+          <span class="why-icon">⛓️</span>
           <h3>End-to-end delivery</h3>
           <p>Raw data → schema design → cleaning → KPIs → dashboard. No handoffs needed for small-to-mid analytics workloads.</p>
         </div>
         <div class="why-card">
+          <span class="why-icon">🎯</span>
           <h3>Business-first framing</h3>
           <p>Every project starts with a business question, not a dataset. Outputs are structured for decisions, not exploration.</p>
         </div>
         <div class="why-card">
+          <span class="why-icon">📈</span>
           <h3>Self-driven learner</h3>
-          <p>Transitioned from health &amp; safety into data analytics through structured self-study and real-world project builds.</p>
+          <p>Rebuilt my career through structured self-study — SQL, Python, Power BI, and statistical modelling — while running a business simultaneously.</p>
         </div>
       </div>
     </div>
 
     <!-- CTA -->
     <div class="cta-block">
-      <p>Open to data analyst roles — operations, risk, supply chain, or EHS</p>
+      <p>Let's work together</p>
+      <p class="cta-sub">Open to data analyst roles in operations, risk, supply chain, or EHS — remote or hybrid</p>
       <div class="btn-row">
         <a href="mailto:nawwarah.bi@gmail.com" class="btn btn-primary">Email me</a>
-        <a href="https://github.com/nawwarah-analyst" target="_blank" rel="noopener" class="btn">View all projects on GitHub</a>
+        <a href="https://github.com/nawwarah-analyst" target="_blank" rel="noopener" class="btn">View GitHub</a>
         <a href="https://www.linkedin.com/in/nawwarah-analyst" target="_blank" rel="noopener" class="btn">Connect on LinkedIn</a>
       </div>
     </div>
