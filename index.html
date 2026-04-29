@@ -426,7 +426,7 @@
     <!-- STATS -->
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="num">5</div>
+        <div class="num">6</div>
         <div class="lbl">Portfolio projects</div>
       </div>
       <div class="stat-card">
@@ -507,47 +507,19 @@
           <div>
             <span class="impact-badge">End-to-end EHS platform</span>
             <p class="card-title">EHS Safety Intelligence System</p>
-            <p class="card-sub">SQL EDA · LTIFR · Compliance monitoring · Role-based dashboards</p>
+            <p class="card-sub">LTIFR · Compliance monitoring · Role-based dashboards</p>
           </div>
-          <div style="display:flex;gap:6px;flex-shrink:0;">
-            <a href="https://github.com/nawwarah-analyst/ehs-safety-intelligence" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;">GitHub ↗</a>
-            <a href="https://github.com/nawwarah-analyst/ehs-EDA" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;background:var(--teal-bg);color:var(--teal-text);border-color:var(--teal-border);">EDA ↗</a>
-          </div>
+          <a href="https://github.com/nawwarah-analyst/ehs-safety-intelligence" target="_blank" rel="noopener" class="btn" style="white-space:nowrap;flex-shrink:0;">GitHub ↗</a>
         </div>
-        <p class="card-desc">Designed an end-to-end EHS analytics system integrating incident logs, audit records, and training data into a unified risk-monitoring platform. Before building any KPI, conducted a structured SQL EDA across all three tables — profiling nulls, catching data quality issues, and validating cross-table relationships — so that downstream metrics like LTIFR, severity scoring, near-miss rate, and training compliance are built on clean, trustworthy data. Role-based Power BI dashboards serve Executives, EHS Managers, and Plant Managers with both lagging and leading indicator views.</p>
-
-        <!-- EDA FINDINGS STRIP -->
-        <div style="background:var(--bg-secondary);border:0.5px solid var(--border);border-radius:8px;padding:0.85rem 1rem;margin-bottom:12px;">
-          <p style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">EDA highlights · 4 SQL scripts · 3 tables</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px;">
-            <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
-              <span style="font-weight:500;color:var(--text);">Data quality issues caught</span><br/>
-              Mixed formats (Y/N/1/0/Yes), text scores ("eighty five"), inconsistent naming ("Prod." vs "Production", "Plant A" vs "Plant-A")
-            </div>
-            <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
-              <span style="font-weight:500;color:var(--text);">Logic contradictions flagged</span><br/>
-              Score of 92 marked FAIL · near-miss records with injury types · failed audits with no followup logged
-            </div>
-            <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
-              <span style="font-weight:500;color:var(--text);">Cross-table validation</span><br/>
-              Confirmed site &amp; dept coverage across incidents, audits, and training — catching silent JOIN drops before modelling
-            </div>
-            <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
-              <span style="font-weight:500;color:var(--text);">Employee risk linkage</span><br/>
-              Identified employees with HIGH severity incidents but no training records — a real compliance gap signal
-            </div>
-          </div>
-        </div>
-
+        <p class="card-desc">Designed an end-to-end EHS analytics system integrating incident logs, audit records, and training data into a unified risk-monitoring platform. Built safety-critical KPIs including LTIFR, severity scoring, near-miss rate, and training compliance — with both lagging and leading indicators to enable proactive safety management. Role-based Power BI dashboards serve Executives, EHS Managers, and Plant Managers with tailored views.</p>
         <div class="dashboard-preview" onclick="openLightbox('ehs-dashboard.png')">
           <img src="ehs-dashboard.png" alt="EHS Safety Intelligence Dashboard" loading="lazy" />
           <span class="preview-label">Click to expand</span>
         </div>
         <div class="tag-row">
-          <span class="tag blue">BigQuery · SQL</span>
+          <span class="tag blue">BigQuery</span>
           <span class="tag purple">Power BI</span>
           <span class="tag teal">Dimensional modelling</span>
-          <span class="tag teal">EDA</span>
           <span class="tag amber">EHS domain</span>
         </div>
       </div>
@@ -555,6 +527,25 @@
       <!-- Supporting -->
       <p class="supporting-label">Supporting projects</p>
       <div class="supporting-grid">
+
+        <!-- EDA card — full width to give it more breathing room -->
+        <div class="supporting-card" style="grid-column:1/-1;border-left:3px solid var(--teal-border);">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+            <div>
+              <h3 style="margin-bottom:2px;">EHS Source Data — SQL EDA</h3>
+              <p style="font-size:11px;color:var(--text-tertiary);margin-bottom:0;font-family:'DM Mono',monospace;">Conducted after the EHS project was completed</p>
+            </div>
+            <a href="https://github.com/nawwarah-analyst/ehs-EDA" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);text-decoration:none;white-space:nowrap;">View on GitHub ↗</a>
+          </div>
+          <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.65;margin-bottom:10px;">A structured SQL EDA across the three EHS source tables — incidents, audits, and training — conducted <em>after</em> the dashboard was already built. The analysis revealed data quality issues including mixed value formats, logic contradictions (a score of 92 marked FAIL, near-miss records with injury types), and cross-table mismatches that affect the accuracy of the current dashboard. Findings are documented openly as a learning milestone — it reinforced why EDA must come before modelling, not after.</p>
+          <div class="tag-row">
+            <span class="tag blue">BigQuery · SQL</span>
+            <span class="tag teal">EDA</span>
+            <span class="tag teal">Data quality</span>
+            <span class="tag neutral">4 scripts · 3 tables</span>
+          </div>
+        </div>
+
         <div class="supporting-card">
           <h3>Sales KPI — Python pipeline</h3>
           <p>Data cleaning &amp; BI-ready preparation. Feature engineering for profit margin and time-series analysis.</p>
