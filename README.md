@@ -116,8 +116,6 @@ These are the data quality problems the EDA revealed — all of which affect the
 
 The dashboard was built before these issues were found. As a result:
 
-- Site and department groupings may be split incorrectly due to naming inconsistencies
-- The average audit score is calculated without the text-format score rows
 - Near-miss counts may be overstated
 - Training compliance rates may appear higher than they actually are
 - The employee risk linkage (incidents → training) is not validated
